@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
+  StyleSheet,
   ActivityIndicator
 } from "react-native";
 
@@ -70,7 +71,7 @@ class PokeList extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.pokeListContainer}>
         <FlatList
           data={this.state.data}
           keyExtractor={item => item.name}
@@ -80,7 +81,24 @@ class PokeList extends React.Component {
         ></FlatList>
       </View>
     );
+
+    
   }
+
+ 
 }
+
+const styles = StyleSheet.create({
+  pokeListContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    padding: 5,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    flexWrap: 'wrap',
+  }
+});
 
 export default PokeList;
