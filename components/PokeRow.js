@@ -1,12 +1,14 @@
 import React from "react";
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
+import {Actions} from 'react-native-router-flux';
+import PokeInfo from "../screens/PokeInfo";
 
 const PokeRow = ({ name, imgUrl, number, navigation }) => {
   return (
     // <Fragment></Fragment>
     <TouchableOpacity 
         style={{ backgroundColor: "transparent" }}
-        onPress={() => navigation.navigate('PokeInfo',{pokemonId:number})}
+        onPress={() => Actions.PokeInfo({pokemonId:number})}
     >
       <View style={styles.listItemContainer}>
         <Image source={{ uri: imgUrl }} style={styles.pokeImage} />
