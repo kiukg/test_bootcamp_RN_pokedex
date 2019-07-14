@@ -7,8 +7,8 @@ class Home extends Component {
 
   async userLogout() {
     try {
-      await AsyncStorage.removeItem('id_token');
-      Alert.alert('Logout Success!');
+      // await AsyncStorage.removeItem('id_token');
+      // Alert.alert('Logout Success!');
       Actions.Authentication();
     } catch (error) {
       console.log('AsyncStorage error: ' + error.message);
@@ -19,28 +19,26 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <View style={[styles.container]}>
-          <Button title="Pokedex" onPress={() => Actions.PokeList()} />
+          <Button title="Open Pokedex" style={[styles.button]} onPress={() => Actions.PokeList()} />
         </View>
-
-        <TouchableOpacity style={styles.buttonWrapper} onPress={this.userLogout}>
-          <Text style={styles.buttonText} > Log out </Text>
-        </TouchableOpacity>
+        <View style={[styles.container]}>
+          <Button title="Log out" style={[styles.button]} onPress={this.userLogout} />
+        </View>
       </View>
     );
   }
 }
 
-// const Home = ({ navigation }) => (
-//   <View style={[styles.container]}>
-//     <Button title="Pokedex" onPress={() => navigation.navigate("PokeList")} />
-//   </View>
-// );
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexDirection:'row'
+  },
+  button:{
+    margin:5,
+    backgroundColor:'red'
   }
 });
 
