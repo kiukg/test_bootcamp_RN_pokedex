@@ -6,7 +6,6 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
-  StyleSheet,
   ActivityIndicator
 } from "react-native";
 
@@ -58,7 +57,9 @@ class PokeList extends React.Component {
 
   renderItem(data) {
     let url = data.item.url.match(/([^\/]*)\/*$/)[1];
-    let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url}.png`;
+    // let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url}.png`;
+    let imgUrl = `https://pokeres.bastionbot.org/images/pokemon/${url}.png`;
+    
     return (
       <PokeRow
         name={this.Capitalize(data.item.name)}
@@ -71,8 +72,9 @@ class PokeList extends React.Component {
 
   render() {
     return (
-      <View style={styles.pokeListContainer}>
-        <FlatList
+      <View>
+        <FlatList 
+          numColumns={2}
           data={this.state.data}
           keyExtractor={item => item.name}
           renderItem={data => this.renderItem(data)}
@@ -81,24 +83,7 @@ class PokeList extends React.Component {
         ></FlatList>
       </View>
     );
-
-    
   }
-
- 
 }
-
-const styles = StyleSheet.create({
-  pokeListContainer:{
-    flex: 1,
-    justifyContent: 'center',
-    padding: 5,
-    borderTopWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    flexWrap: 'wrap',
-  }
-});
 
 export default PokeList;
