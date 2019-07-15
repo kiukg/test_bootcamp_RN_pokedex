@@ -2,11 +2,7 @@ import React from "react";
 import PokeRow from "./PokeRow";
 import {
   View,
-  Image,
   FlatList,
-  TouchableOpacity,
-  Text,
-  ActivityIndicator
 } from "react-native";
 
 class PokeList extends React.Component {

@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import {Actions} from 'react-native-router-flux';
-import PokeInfo from "../screens/PokeInfo";
 
 const PokeRow = ({ name, imgUrl, number, navigation }) => {
   return (
@@ -32,6 +31,12 @@ const styles = StyleSheet.create({
   },
   listRowContainer: {
     flexDirection: "column",
+    backgroundColor:'#fff',
+    borderRadius:70,
+    height:70,
+    width:70,
+    alignSelf:'center',
+    marginBottom:5
   },
   listRowContainer2: {
     flexDirection: "row",
@@ -51,12 +56,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   pokeImage: {
-    backgroundColor: "white",
+    backgroundColor: "transparent",
     height: 70,
     width: 70,
     borderWidth:1,
     alignSelf:'center',
-    borderRadius:70,
+    // borderRadius:70,
     marginBottom:5
   }
 });

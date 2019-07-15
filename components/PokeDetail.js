@@ -1,21 +1,14 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList,Text,Dimensions }  from 'react-native';
+import { View, Image, StyleSheet, FlatList,Text,Dimensions }  from 'react-native';
 
-const widthF = Dimensions.get('window').width; //full width
-const heightF = Dimensions.get('window').height; //full height
-
-
-
-const imgContainerHeight = (heightF/3);
-const pokeStatisticsHeight = 25;
-const pokeMovesHeight = (heightF/3)-25;
-
+const heightF = Dimensions.get('window').height; 
+const imgContainerHeight = (heightF/4);
 
 const PokeDetail = ({number,name,types,imgUrl,height,weight,moves})=>{
     return (
         <View style={styles.pokeDetailContainer}>
             <View style={styles.imgContainer}>
-                <Image source={{ uri: imgUrl }} style={{height:200,width:200}} ></Image>
+                <Image source={{ uri: imgUrl }} style={{height:imgContainerHeight,width:imgContainerHeight}} ></Image>
             </View>
             <View style={styles.pokeStatistics2}>
                 <View style={styles.pokeTypes} >
@@ -83,7 +76,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'stretch',
         flexGrow: 1,
-        backgroundColor:'#fff',
+        backgroundColor:'#2a75bb',
     },
     imgContainer:{
           justifyContent: 'space-evenly',
@@ -92,7 +85,7 @@ const styles = StyleSheet.create({
           alignItems:'center',
           width: imgContainerHeight,
           height:imgContainerHeight,
-          backgroundColor:'#eee',
+          backgroundColor:'#fff',
           borderRadius:imgContainerHeight,
           marginTop:5
     },
@@ -100,8 +93,8 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         flexDirection:'row',
         justifyContent:'space-between',
-        height:30,
-        backgroundColor:'#435f8c',
+        height:45,
+        backgroundColor:'#d32734',
     },
     pokeStatistics3:{
         alignSelf: 'center',
@@ -114,11 +107,10 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flexDirection:'row',
         justifyContent:'space-between',
-        height:35,
+        height:40,
         marginTop:5,
-        borderColor:'#7c97c2',
-        borderBottomWidth:1,
-        borderTopWidth:1
+        marginBottom:5,
+        padding:15,
     },
     pokeMoves:{
         alignSelf: 'stretch',
@@ -131,21 +123,19 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-evenly',
         alignItems:'center',
-        height:50,
+        height:70,
     },
     pokeItem:{
         margin:5,
         fontSize:20,
-        alignSelf:'stretch',
-        
+        alignSelf:'center',
+        borderWidth:1,
+        borderColor:'#fff',
+        borderRadius:5,
+        padding:5,
     },
     pokeItem3:{
         flex: 1,
-        // alignSelf: 'center',
-        padding:5,
-        // margin:3,
-        // alignContent:'center',
-        // justifyContent:'center',
         borderBottomColor: 'white',
         borderBottomWidth:1,
     },
@@ -169,11 +159,12 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent:'center',
         fontSize:25,
-        margin:5,
-        color:'#7c97c2'
+        margin:15,
+        color:'#fff',
+        padding:5,
     },
     pokeText:{
-        color:'#fff'
+        color:'#fff',
     },
     pokeText2:{
         color:'#fff',

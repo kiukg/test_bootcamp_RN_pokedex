@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ActivityIndicator , AsyncStorage,  } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { ActivityIndicator , AsyncStorage,  } from "react-native";
+import { createStackNavigator } from "react-navigation";
 import {Router, Scene} from 'react-native-router-flux';
 import Home from "./screens/Home";
 import PokeList from "./components/PokeList";
@@ -40,21 +40,21 @@ class App extends Component {
             />
             <Scene
               component={Home}
-              hideNavBar={false}
+              hideNavBar={true}
               key='Home'
-              title='Home Page'
+              title='Home'
             />
              <Scene
               component={PokeList}
               hideNavBar={false}
               key='PokeList'
-              title='PokeList Page'
+              title='Pokedex'
             />
             <Scene
               component={PokeInfo}
               hideNavBar={false}
               key='PokeInfo'
-              title='PokeInfo Page'
+              title='Detailed Information'
             />
             
           </Scene>

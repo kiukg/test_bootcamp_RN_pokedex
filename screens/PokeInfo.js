@@ -1,15 +1,14 @@
 import React from "react";
 import {
   View,
-  Image,
-  FlatList,
-  TouchableOpacity,
   Text,
   ActivityIndicator
 } from "react-native";
 import PokeDetail from "../components/PokeDetail";
 
-let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`;
+// let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`;
+let imgUrl = `https://pokeres.bastionbot.org/images/pokemon/`;
+
 const TYPES_COLORS = {
 	bug: 'B1C12E',
 	dark: '4F3A2D',
@@ -38,6 +37,10 @@ class PokeInfo extends React.Component{
             data: [],
             pokemonImg:0
         };
+      }
+
+      Capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
       }
 
       componentWillMount() {
@@ -69,7 +72,6 @@ class PokeInfo extends React.Component{
                                       paddingBottom:0,
                                       paddingTop:0,
                                       borderWidth: 0,
-                                      
                                       justifyContent:'center',
                                       height:25,
                                       alignItems:'center'}}>
@@ -84,7 +86,7 @@ class PokeInfo extends React.Component{
                             });
             return (
                 <PokeDetail number={this.state.pokemonImg}
-                            name={this.state.data.name} 
+                            name={this.Capitalize(this.state.data.name)} 
                             types={typess} 
                             imgUrl={`${imgUrl}${this.state.pokemonImg}.png`} 
                             height={this.state.data.height} 
@@ -96,7 +98,7 @@ class PokeInfo extends React.Component{
         else{
             return (
                 <View>
-                <Text>Wait for it...</Text>
+                <ActivityIndicator></ActivityIndicator>
               </View>
             )
         }
